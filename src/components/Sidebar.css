@@ -1,0 +1,11 @@
+aside {
+    position: fixed;
+    background: blue;
+    display: flex; flex-direction: column;
+    top: 0px; left: 0px; bottom: 0px;
+    padding: 2rem 0;
+    z-index: 99;
+    width: 260px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
