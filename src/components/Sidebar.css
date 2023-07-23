@@ -1,11 +1,29 @@
-aside {
+aside.dashboard-sidebar {
     position: fixed;
-    background: blue;
-    display: flex; flex-direction: column;
     top: 0px; left: 0px; bottom: 0px;
-    padding: 2rem 0;
-    z-index: 99;
-    width: 260px;
+    display: flex; flex-direction: column;
+    background: var(--color-secondary);
+    border-right: 3px solid lightgray;
+    color: #fff;
+    width: 210px;
     box-sizing: border-box;
     overflow-y: auto;
+    z-index: 99;
+
+    & nav {
+        margin-top: 40px;
+
+        & ul {
+            padding: 0;
+            display: flex; flex-direction: column;
+            list-style-type: none;
+
+            & li {
+                cursor: pointer;
+                font-size: 1rem;
+                padding: 1rem 2rem;
+                font-weight: 500;
+            }
+        }
+    }
 }

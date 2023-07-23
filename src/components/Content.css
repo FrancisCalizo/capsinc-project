@@ -1,6 +1,6 @@
-main { 
+main.dashboard-content { 
     height: 100%;
     padding: 1rem;
     overflow-x: auto;
-    margin-left: 260px; margin-top: 49px;
+    margin-left: 210px; margin-top: 49px;
 }
