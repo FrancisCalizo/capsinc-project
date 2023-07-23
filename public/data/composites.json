@@ -1,0 +1,32 @@
+[
+    {
+        "compositeId": 560,
+        "compositeCode": "AL Central",
+        "compositeName": "AL Central Composite"
+    },
+    {
+        "compositeId": 558,
+        "compositeCode": "AL East",
+        "compositeName": "AL East Composite"
+    },
+    {
+        "compositeId": 559,
+        "compositeCode": "AL West",
+        "compositeName": "AL West Composite"
+    },
+    {
+        "compositeId": 556,
+        "compositeCode": "NL Central",
+        "compositeName": "NL Central Composite"
+    },
+    {
+        "compositeId": 555,
+        "compositeCode": "NL East",
+        "compositeName": "NL East Composite"
+    },
+    {
+        "compositeId": 557,
+        "compositeCode": "NL West",
+        "compositeName": "NL West Composite"
+    }
+]
