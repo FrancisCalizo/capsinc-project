@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
 
-import './App.css';
 import DashboardLayout from './components/DashboardLayout';
 
-const URL = 'https://capsinterviews.azurewebsites.net/api/composites?code=pn489yjzOHYDc'
+import './App.css';
+
+const API_URL = 'https://capsinterviews.azurewebsites.net/api/composites?code=pn489yjzOHYDc'
 
 function App() {
+
 	useEffect(() => {
 		// TODO: Replace with Caps URL
 		// TODO: Do TypeScript types?
-		fetch('data/composites.json')
+		fetch(API_URL) 
 			.then(res => res.json())
 			.then(data => console.log(data))
 			.catch(err => console.log(err))
