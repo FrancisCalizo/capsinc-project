@@ -11,7 +11,7 @@ aside.dashboard-sidebar {
     z-index: 99;
 
     & nav {
-        margin-top: 40px;
+        margin-top: 35px;
 
         & ul {
             padding: 0;
@@ -23,6 +23,11 @@ aside.dashboard-sidebar {
                 font-size: 1rem;
                 padding: 1rem 2rem;
                 font-weight: 500;
+
+                &:hover {
+                    background: var(--color-secondary);
+                    filter: brightness(1.1);
+                }
             }
         }
     }

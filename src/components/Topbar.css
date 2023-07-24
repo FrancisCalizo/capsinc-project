@@ -25,15 +25,16 @@ header {
                 padding: 1rem;
                 cursor: pointer;
 
-                /* TODO: change hover background color */
+
                 &:hover {
-                    background: green;
+                    background: var(--color-primary);
+                    filter: brightness(1.5);
                     color: white;
                 }
 
                 /* Temporary active styles */
                 &:nth-child(3) {
-                    border-bottom: 4px solid var(--color-tertiary);
+                    box-shadow: 0 3px 0 0 var(--color-tertiary);
                     color: #fff;
                 }
             }
