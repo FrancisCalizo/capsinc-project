@@ -6,9 +6,17 @@ function Sidebar() {
         <aside className="dashboard-sidebar">
             <nav>
                 <ul>
-                    <li>About</li>
-                    <li>Composites</li>
-                    <li>Source Code</li>
+                    <li>
+                        <a href="/">Composites</a>
+                    </li>
+
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="/source">Source Code</a>
+                    </li>
                 </ul>
             </nav>
         </aside>
