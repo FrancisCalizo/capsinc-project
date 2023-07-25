@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useCompositeContext from 'src/hooks/useCompositeContext';
+import LoadingAnimation from './LoadingAnimation';
 
 import './Composites.css'
 
@@ -46,8 +47,7 @@ function Composites() {
 
             <main>
                 
-                {/* TODO: Replace with loading gif */}
-                { isLoading && <>Loading...</>}
+                { isLoading && <LoadingAnimation />}
 
                 { !isLoading && (
                     <table className='composite-list-table'>

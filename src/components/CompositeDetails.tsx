@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 
 import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
+import LoadingAnimation from 'src/components/LoadingAnimation';
 
 import './CompositeDetails.css'
 
 const API_URL = 
     'https://capsinterviews.azurewebsites.net/api/composites/performance/'
+
+type View = 'TABLE' | 'CHART';
 
 function CompositeDetails() {
 
@@ -16,6 +19,7 @@ function CompositeDetails() {
 
     const [performanceData, setPerformanceData] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState(false)
+    const [view, setView] = useState<View>('TABLE')
 
     useEffect(() => {
         const url = API_URL + `${id}?code=${process.env.REACT_APP_API_KEY}`
@@ -31,6 +35,15 @@ function CompositeDetails() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
+    const getClasses = (v: View) => {
+        if (v === view) {
+            return 'selected'
+        }
+
+        return ''
+    }
+
+    const handleButtonClick = (v: View) => setView(v)
 
     return (
         <>
@@ -38,35 +51,53 @@ function CompositeDetails() {
                 Composite Performance
             </header>
 
+            <div className="display-buttons">
+                <button 
+                    onClick={() => handleButtonClick('TABLE')}
+                    className={getClasses('TABLE')}
+                >
+                    Table View
+                </button>
+                <button
+                onClick={() => handleButtonClick('CHART')}
+                    className={getClasses('CHART')}
+                >
+                    Chart View
+                </button>
+            </div>
+
             <main>
                 
-                {/* TODO: Replace with loading gif */}
-                { isLoading && <>Loading...</>}
+                { isLoading && <LoadingAnimation />}
 
                 { !isLoading && (
-                    <table className='performance-list-table'>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Beginning Market Value</th>
-                                <th>End Market Value</th>
-                                <th>Asset Weight Gross %</th>
-                                <th>Asset Weight Net %</th>
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            {performanceData.map((p, idx) => (
-                                <tr key={idx}>
-                                    <td>{ formatDate(p.PerfDate) }</td>
-                                    <td>{ formatCurrency(p.bop_mv) }</td>
-                                    <td>{ formatCurrency(p.eop_mv) }</td>
-                                    <td>{ formatPercentage(p.awr_gr) }</td>
-                                    <td>{ formatPercentage(p.awr_nr) }</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                    <>
+                        {view === 'TABLE' && (
+                            <table className='performance-list-table'>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Beginning Market Value</th>
+                                        <th>End Market Value</th>
+                                        <th>Asset Weight Gross %</th>
+                                        <th>Asset Weight Net %</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    {performanceData.map((p, idx) => (
+                                        <tr key={idx}>
+                                            <td>{ formatDate(p.PerfDate) }</td>
+                                            <td>{ formatCurrency(p.bop_mv) }</td>
+                                            <td>{ formatCurrency(p.eop_mv) }</td>
+                                            <td>{ formatPercentage(p.awr_gr) }</td>
+                                            <td>{ formatPercentage(p.awr_nr) }</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                        </table>
+                        )}
+                    </>
                 )}
             
             </main>

@@ -1,3 +1,27 @@
+.display-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    & button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0;
+        font-size: 14px;
+        border: 1px solid gainsboro;
+        cursor: pointer;
+        
+        &:first-child {
+            border-right: none;
+        }
+
+        &.selected {
+            background: var(--color-secondary);
+            color: #fff;
+        }
+    }
+}
+
 table.performance-list-table {
     width: 100%;
     border-collapse: collapse;
