@@ -1,5 +1,7 @@
 import DashboardLayout from 'src/components/DashboardLayout';
 import CompositeDetails from 'src/components/CompositeDetails';
+import CompositeContext from './context/CompositeContext';
+
 import Composites from 'src/components/Composites';
 import About from 'src/components/About';
 import Source from 'src/components/Source'
@@ -37,11 +39,15 @@ function App() {
 	const Page = determinePage(window.location)
 
     return (
-		<DashboardLayout>
-			
-			{ Page }
+		<CompositeContext>
 
-		</DashboardLayout>
+			<DashboardLayout>
+				
+				{ Page }
+
+			</DashboardLayout>
+			
+		</CompositeContext>
 	);
 }
 

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import useCompositeContext from 'src/hooks/useCompositeContext';
+
 import './Composites.css'
 
 const API_URL = 
     `https://capsinterviews.azurewebsites.net/api/composites?code=${process.env.REACT_APP_API_KEY}`
 
-interface IComposites {
+export type TComposites = {
     compositeId: number;
     compositeCode: string;
     compositeName: string;
@@ -13,7 +15,8 @@ interface IComposites {
 
 function Composites() {
 
-    const [composites, setComposites] = useState<IComposites[]>([])
+    const { composites, setComposites } = useCompositeContext()
+
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
@@ -26,7 +29,7 @@ function Composites() {
             .finally(() => setIsLoading(false))
 	}, [])
 
-    const handleRowClick = (row: IComposites) => {
+    const handleRowClick = (row: TComposites) => {
         const { compositeId } = row;
 
         const url = `/composites?id=${compositeId}`
