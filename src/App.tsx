@@ -1,3 +1,5 @@
+import { useRoutes } from 'react-router-dom';
+
 import DashboardLayout from 'src/components/DashboardLayout';
 import CompositeDetails from 'src/components/CompositeDetails';
 import CompositeContext from './context/CompositeContext';
@@ -10,43 +12,23 @@ import './App.css';
 
 function App() {
 
-	const determinePage = (location: Location) => {
-		const { pathname } = location;
-
-		let Page: JSX.Element;
-
-		switch(pathname) {
-			case "/about":
-				Page = <About />
-				break
-
-			case "/source":
-				Page = <Source />
-				break
-
-			case "/composites":
-				Page = <CompositeDetails />
-				break
-
-			default:
-				Page = <Composites />
-				break
-		}
-
-		return Page
-	}
-
-	const Page = determinePage(window.location)
+	const routes = useRoutes([
+		{ path: '/', element: <Composites /> },
+		{ path: '/about', element: <About /> },
+		{ path: '/source', element: <Source /> },
+		{ path: '/composites', element: <CompositeDetails /> },
+		{ path: '*', element: <h1>Page not found</h1> },
+		])
 
     return (
 		<CompositeContext>
 
 			<DashboardLayout>
-				
-				{ Page }
+
+				{ routes }
 
 			</DashboardLayout>
-			
+
 		</CompositeContext>
 	);
 }

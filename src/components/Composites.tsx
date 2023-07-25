@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { Link } from "react-router-dom";
+
 import useCompositeContext from 'src/hooks/useCompositeContext';
 import LoadingAnimation from './LoadingAnimation';
 
@@ -28,16 +30,9 @@ function Composites() {
 			.then(data => setComposites(data))
 			.catch(err => console.log(err))
             .finally(() => setIsLoading(false))
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
-
-    const handleRowClick = (row: TComposites) => {
-        const { compositeId } = row;
-
-        const url = `/composites?id=${compositeId}`
-
-        window.history.pushState({}, "", url)
-        window.history.go()
-    }
 
     return (
         <>
@@ -67,12 +62,11 @@ function Composites() {
                                     <td>{ c.compositeCode }</td>
                                     <td>{ c.compositeName }</td>
                                     <td>
-                                        <button 
-                                            className="view-details"
-                                            onClick={() => handleRowClick(c)}
-                                        >
-                                            View Details
-                                        </button>
+                                        <Link to={`/composites?id=${c.compositeId}`}>
+                                            <button className="view-details">
+                                                View Details
+                                            </button>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
