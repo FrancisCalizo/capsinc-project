@@ -13,7 +13,7 @@ function Topbar() {
     }
 
     return (
-        <header>
+        <header className="topbar">
             <div className="text-logo">
                 <strong>CompositeHub</strong>
             </div>
