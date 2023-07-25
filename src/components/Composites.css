@@ -1,0 +1,32 @@
+table.composite-list-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    & td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    & th {
+        background: var(--color-secondary);
+        color: #fff;
+    }
+
+    & tr:nth-child(even) {
+        background: gainsboro;
+    }
+
+    & td:last-child {
+        width: 100px;
+    }
+
+    & button.view-details {
+        border: none;
+        background: none;
+        color: var(--color-secondary);
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

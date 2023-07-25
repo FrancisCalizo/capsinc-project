@@ -7,9 +7,9 @@ interface ContentProps {
 function Content({ children }: ContentProps) {
 
     return (
-        <main className="dashboard-content">
+        <div className="dashboard-content">
             { children }
-        </main>
+        </div>
     );
 }
 

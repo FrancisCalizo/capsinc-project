@@ -1,0 +1,26 @@
+table.performance-list-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    & td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    & th {
+        background: var(--color-secondary);
+        color: #fff;
+    }
+
+    & tr:nth-child(even) {
+        background: gainsboro;
+    }
+
+    & tbody {
+
+        & td {
+            text-align: right;
+        }
+    }
+}
