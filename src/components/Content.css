@@ -5,7 +5,7 @@ div.dashboard-content {
     margin-left: 210px; margin-top: 49px;
 
     & header.content-title {
-        margin: .5rem 0 1.5rem;
+        margin: .5rem 0 0;
         color: var(--color-title);
         font-size: 2rem; font-weight: bolder;        
     }

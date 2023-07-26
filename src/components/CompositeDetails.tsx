@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
+import useCompositeContext from 'src/hooks/useCompositeContext';
 import LoadingAnimation from 'src/components/LoadingAnimation';
 
 import './CompositeDetails.css'
@@ -12,10 +13,13 @@ type View = 'TABLE' | 'CHART';
 
 function CompositeDetails() {
 
+    const { composites } = useCompositeContext()
+
     // Get query param string "code"
     const x = window.location.search;
     const y = 'code=';
     const id = x.slice(x.indexOf(y) + y.length)
+    const compositeInfo = composites.find(c => c.compositeId === Number(id))
 
     const [performanceData, setPerformanceData] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState(false)
@@ -50,6 +54,10 @@ function CompositeDetails() {
             <header className="content-title">
                 Composite Performance
             </header>
+
+            <h3 className="sub-heading">
+                { compositeInfo?.compositeName }
+            </h3>
 
             <div className="display-buttons">
                 <button 

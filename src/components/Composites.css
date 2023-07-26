@@ -1,6 +1,7 @@
 table.composite-list-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 1.5rem;
 
     & td, th {
         border: 1px solid #dddddd;

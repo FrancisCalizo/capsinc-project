@@ -1,3 +1,7 @@
+.sub-heading{
+    margin-top: 0.25rem;
+}
+
 .display-buttons {
     display: flex;
     justify-content: flex-end;
