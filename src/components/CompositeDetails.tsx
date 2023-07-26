@@ -13,6 +13,22 @@ const API_URL =
 
 type View = 'TABLE' | 'CHART';
 
+export interface IPerformanceData {
+    Id: number,
+    ixTenantClass: number,
+    AssetClassName: string,
+    PerfDate: string,
+    bop_mv: number,
+    eop_mv: number,
+    awr_gr: number,
+    awr_nr: number,
+    eop_cf: number,
+    eop_mf: number,
+    eop_cb: number,
+    eop_wd: number,
+    NumberOfAccts: number,
+}
+
 function CompositeDetails() {
 
     const { composites } = useCompositeContext()
@@ -24,8 +40,7 @@ function CompositeDetails() {
     const id = x.slice(x.indexOf(y) + y.length)
     const compositeInfo = composites.find(c => c.compositeId === Number(id))
 
-    // TODO: Remove Any type
-    const [performanceData, setPerformanceData] = useState<any[]>([])
+    const [performanceData, setPerformanceData] = useState<IPerformanceData[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [view, setView] = useState<View>('TABLE')
 

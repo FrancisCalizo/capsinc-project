@@ -11,9 +11,10 @@ import {
 
 import { Line } from 'react-chartjs-2';
 import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
+import { IPerformanceData } from './CompositeDetails';
+
 interface IChartDetails {
-    // Todo: remove any type
-    data: any;
+    data: IPerformanceData[]
 }
 
 ChartJS.register(
@@ -35,9 +36,7 @@ const marketValueOptions = {
     scales: {
         y: {
             ticks: {
-                callback: function(value: any) {
-                    return formatCurrency(value)
-                }
+                callback: (value: any ) => formatCurrency(value)
             }
         }
     }
@@ -61,16 +60,14 @@ const returnOptions = {
 
 export default function ChartDetails({ data }: IChartDetails) {
 
-    // TODO: Remove Any type
-    const sortedData = data.sort((b: any, a: any) => {
+    const sortedData = data.sort((b, a) => {
         const timeA = new Date(`${a.PerfDate}z`);
         const timeB = new Date(`${b.PerfDate}z`);
 
         return timeB.getTime() - timeA.getTime()
     })
 
-    // TODO: Remove Any type
-    const labels = sortedData.map((d: any) => formatDate(d.PerfDate))
+    const labels = sortedData.map((d) => formatDate(d.PerfDate))
 
     const marketValuedata = {
         labels,
