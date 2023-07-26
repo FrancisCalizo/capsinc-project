@@ -22,6 +22,7 @@ function CompositeDetails() {
     const id = x.slice(x.indexOf(y) + y.length)
     const compositeInfo = composites.find(c => c.compositeId === Number(id))
 
+    // TODO: Remove Any type
     const [performanceData, setPerformanceData] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [view, setView] = useState<View>('TABLE')
@@ -108,7 +109,7 @@ function CompositeDetails() {
                         )}
 
                         {view === 'CHART' && (
-                            <ChartDetails />
+                            <ChartDetails data={ performanceData }/>
                         )}
                     </>
                 )}
