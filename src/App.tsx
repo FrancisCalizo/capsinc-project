@@ -1,14 +1,12 @@
 import { useRoutes } from 'react-router-dom';
 
-import DashboardLayout from 'src/components/DashboardLayout';
+import DashboardLayout from 'src/components/layout/DashboardLayout';
 import CompositeDetails from 'src/components/CompositeDetails';
 import CompositeContext from './context/CompositeContext';
 
 import Composites from 'src/components/Composites';
 import About from 'src/components/About';
 import Source from 'src/components/Source'
-
-import './App.css';
 
 function App() {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Topbar from 'src/components/Topbar';
-import Sidebar from 'src/components/Sidebar';
-import Content from 'src/components/Content';
+import Topbar from 'src/components/layout/Topbar';
+import Sidebar from 'src/components/layout/Sidebar';
+import Content from 'src/components/layout/Content';
 
 interface DashboardLayoutProps {
     children: React.ReactNode
