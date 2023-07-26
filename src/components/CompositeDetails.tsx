@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
 import useCompositeContext from 'src/hooks/useCompositeContext';
 import LoadingAnimation from 'src/components/LoadingAnimation';
+import ChartDetails from 'src/components/ChartDetails'
 
 import './CompositeDetails.css'
 
@@ -104,6 +105,10 @@ function CompositeDetails() {
                                     ))}
                                 </tbody>
                         </table>
+                        )}
+
+                        {view === 'CHART' && (
+                            <ChartDetails />
                         )}
                     </>
                 )}
