@@ -1,3 +1,11 @@
+.back-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
 .sub-heading{
     margin-top: 0.25rem;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router';
 
 import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
 import useCompositeContext from 'src/hooks/useCompositeContext';
@@ -15,6 +16,7 @@ type View = 'TABLE' | 'CHART';
 function CompositeDetails() {
 
     const { composites } = useCompositeContext()
+    const navigate = useNavigate()
 
     // Get query param string "code"
     const x = window.location.search;
@@ -49,10 +51,19 @@ function CompositeDetails() {
         return ''
     }
 
-    const handleButtonClick = (v: View) => setView(v)
+    const handleChangeView = (v: View) => setView(v)
+
+    const handleBackClick = () => navigate(-1)
 
     return (
         <>
+            <button 
+                className='back-button'
+                onClick={handleBackClick}
+            >
+                &lt; Back to Composites List
+            </button>
+
             <header className="content-title">
                 Composite Performance
             </header>
@@ -63,13 +74,13 @@ function CompositeDetails() {
 
             <div className="display-buttons">
                 <button 
-                    onClick={() => handleButtonClick('TABLE')}
+                    onClick={() => handleChangeView('TABLE')}
                     className={getClasses('TABLE')}
                 >
                     Table View
                 </button>
                 <button
-                onClick={() => handleButtonClick('CHART')}
+                    onClick={() => handleChangeView('CHART')}
                     className={getClasses('CHART')}
                 >
                     Chart View

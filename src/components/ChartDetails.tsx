@@ -10,7 +10,7 @@ import {
 } from 'chart.js';
 
 import { Line } from 'react-chartjs-2';
-import { formatDate } from 'src/utils';
+import { formatCurrency, formatDate, formatPercentage } from 'src/utils';
 interface IChartDetails {
     // Todo: remove any type
     data: any;
@@ -29,17 +29,34 @@ ChartJS.register(
 const marketValueOptions = {
     responsive: true,
     plugins: {
-    legend: { position: 'top' as const },
-    title: { display: true, text: 'Market Value By Period' },
+        legend: { position: 'top' as const },
+        title: { display: true, text: 'Market Value By Period' }
     },
+    scales: {
+        y: {
+            ticks: {
+                callback: function(value: any) {
+                    return formatCurrency(value)
+                }
+            }
+        }
+    }
 };
 
 const returnOptions = {
     responsive: true,
     plugins: {
-    legend: { position: 'top' as const },
-    title: { display: true, text: 'Asset Weighted Returns %' },
+        legend: { position: 'top' as const },
+        title: { display: true, text: 'Asset Weighted Returns %' }
     },
+    scales: {
+        y: {
+            ticks: {
+                stepSize: 0.1,
+                count: 50
+            }
+        }
+    }
 };
 
 export default function ChartDetails({ data }: IChartDetails) {
@@ -78,13 +95,13 @@ export default function ChartDetails({ data }: IChartDetails) {
         datasets: [
             {
                 label: 'Gross Return',
-                data: sortedData.map((d: any) => d.awr_gr),
+                data: sortedData.map((d: any) => formatPercentage(d.awr_gr)),
                 borderColor: 'rgb(0, 128, 0)',
                 backgroundColor: 'rgba(0, 128, 0, 0.5)',
             },
             {
                 label: 'Net Return',
-                data: sortedData.map((d: any) => d.awr_nr),
+                data: sortedData.map((d: any) => formatPercentage(d.awr_nr)),
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
