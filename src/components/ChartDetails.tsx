@@ -52,7 +52,7 @@ const returnOptions = {
         y: {
             ticks: {
                 stepSize: 0.1,
-                count: 50
+                count: 40
             }
         }
     }

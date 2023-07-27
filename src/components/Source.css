@@ -1,0 +1,11 @@
+main.source-main {
+    margin-top: 1rem;
+
+    & div {
+        margin-bottom: 1rem;
+
+        & span {
+            margin-right: 0.25rem;
+        }
+    }
+}
