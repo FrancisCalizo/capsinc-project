@@ -10,12 +10,6 @@ import './Composites.css'
 const API_URL = 
     `https://capsinterviews.azurewebsites.net/api/composites?code=${process.env.REACT_APP_API_KEY}`
 
-export type TComposites = {
-    compositeId: number;
-    compositeCode: string;
-    compositeName: string;
-}
-
 function Composites() {
 
     const { composites, setComposites } = useCompositeContext()
