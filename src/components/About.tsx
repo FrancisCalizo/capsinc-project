@@ -22,6 +22,7 @@ function About() {
                         <li>Table Filtering</li>
                         <li>Table Pagination</li>
                         <li>Accurate y-axis values for charts</li>
+                        <li>Folder structure can be more clear</li>
                     </ul>
                 </section>
             </main>
